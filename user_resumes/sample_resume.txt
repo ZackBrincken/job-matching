@@ -1,0 +1,33 @@
+Education:
+    - School: BS Computer Science from Southern Illinois University Edwardsville
+    - GPA: 4.0
+    - Accolades: On Dean's List for all enrolled semesters.
+    - Current year: Junior
+    - Expected graduation: Next summer
+
+Skills:
+    - Programming languages: HTML, CSS, JavaScript, PHP, SQL, C++, Python, C, MIPS Assembly, Racket (Lisp), Prolog.
+    - Web Development: Full-stack web development (MAMP, Apache, MySQL, PHP PDO, W3 CSS, JavaScript).
+    - Tools and Frameworks: Visual Studio Code, MAMP, W3 CSS, PHP: PDO, Docker, GitHub, WSL, Bash.
+    - Other: Microsoft Office Suite (Word, Excel, PowerPoint, Access, Sharepoint, Teams, Outlook), 4 years high school Spanish
+
+Work experience:
+    - Chem-Care Carpet Cleaning (Summer Job):
+        > Operated sizeable machinery such as carpet cleaning wands, portable carpet cleaning machines, and buffers in commercial buildings.
+        > Assisted my coworkers by refilling their machines, moving furniture, loading and readying equipment, and cleaning floor buffing pads.
+        > At this company, we had to assist our coworkers to keep operations running smoothly without interruption. This means I had to learn the habits/tendencies of my fellow employees to keep their equipment filled with water, loaded with pads, and unimpeded by furniture/wires.
+        > As a new employee at Chem-Care, I had to learn the ropes of cleaning carpet which meant being the slowest of the bunch. This put a lot of pressure on me at the end of the workday as the others waited for me to finish. To counteract this, I read/watched guides on operating the machinery outside of work and was able to more than double my speed by the end of the summer of my employment.
+    - Michael Curry Summer Internship Program with Illinois State Police Office of HR:
+        > I am working with another intern to reorganize the records retention space of the Illinois State Police Office of Human Resources and provide recommendations for future ISP records retention.
+        > Recommended a change in file alphabetization strategy as well as a change in personnel file organization. Both were approved and stirred enthusiasm among our coworkers whose complaints largely fueled our decision.
+
+Projects:
+    - Simple Dungeons and Dragons Character Creator:
+        > A character creator built with C++ where the user may choose from 6 classes and allocate their stats how they wish or randomly based on their chosen class.
+        > This project required 6 classes which would have been tedious and redundant to fully implement individually. I made use of inheritance to significantly lighten the load of programming and improve code readability.
+    - Full Stack Website with MAMP:
+        > A full-stack informational website about famous guitars and guitar players built with MAMP using Windows, Apache, MySQL, PHP as well PHP: PDO, HTML, JavaScript, and CSS along with the W3 framework.
+        > This website includes sign in and registration pages, hashed passwords with salt and pepper, user favorites, dynamic pages which interact with the MySQL database, comments, an admin page with full CRUD functionality only accessible to admin accounts, cookies, session variables, numerous tables with referential integrity using foreign keys, and limited access for guest users.
+    - Custom Thread Scheduler:
+        > A custom round robin thread scheduler written in C using the pthread library and an interrupt handler to implement the custom algorithm.
+        > This project was largely individual and required me to read official documentation on the pthread library, interrupt handlers, and C. Although I had some experience with C++ and we discussed the theoretical end of thread scheduling in class, this project taught me a lot about learning through documentation outside of the classroom.
