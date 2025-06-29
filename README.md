@@ -1,6 +1,6 @@
 # AI-Powered 💪 St. Louis Computer Science Job Matching System
 
-This project allows the user to quickly compare their resume to thousands of computer science job postings in the St. Louis, MO area and determine which ones are best for them.
+This project allows the user to quickly compare their resume to hundreds of computer science job postings in the St. Louis, MO area and determine which ones are best for them.
 
 ### How it works
 
@@ -22,7 +22,7 @@ This project allows the user to quickly compare their resume to thousands of com
 1. Make a local copy of this GitHub repository through `git clone https://github.com/ZackBrincken/job-matching.git` or your preferred method.
 2. Install python on your machine. This program was written in a python version 3.11.13 environment, but any version 3.9+ is almost certainly fine.
 3. Install pip or pip3 on your machine. This program was written in a pip version 25.1 environment, but any version is likely okay.
-4. Using pip or pip3, install the requirements listed in `requirement.yml` or run the following commands in your command-line. As a disclaimer, this will install all of these requirements onto your machine in their respective versions will may be limiting and/or irritating when working with other projects in the future. This is why option 1 is highly recommended. If you must continue with option 2, run the following commands in your command-line (replace "pip" with "pip3" if you installed pip3):
+4. Using pip or pip3, install the requirements listed in `requirement.yml` or run the following commands in your command-line. As a disclaimer, this will install all project requirements onto your machine in their respective versions which will may be limiting and/or irritating when working with other projects in the future. This is why option 1 is highly recommended. If you must continue with option 2, run the following commands in your command-line (replace "pip" with "pip3" if you installed pip3):
 ```
 1. pip install numpy
 2. pip install selenium
@@ -42,7 +42,7 @@ If you would like to see some of the magic work for yourself, go ahead and delet
 ```
 python resume_comparison.py sample_resume.txt
 ```
-You should see that Top_N_Jobs.html and sample_resume_ranked_jobs.jsonl have reappeared. What has happened (without getting into technical detail) is the resume's embedding--a numerical vector representation of the content of text--was compared with 600+ embeddings of job descriptions scraped from Indeed.com. This is done using a method called cosine similarity to quantify the similarity of two vectors. If you wish, you can view an extended list of job matches by running the command with `--num-jobs` as an optional command-line argument:
+You should see that Top_N_Jobs.html and sample_resume_ranked_jobs.jsonl have reappeared. What has happened (without getting into technical detail) is the resume's embedding--a numerical vector representation of the content of text--was compared to 600+ embeddings of job descriptions scraped from Indeed.com. This is done using a method called cosine similarity to quantify the similarity of two vectors. If you wish, you can view an extended list of job matches by running the command with `--num-jobs` as an optional command-line argument:
 ```
 python resume_comparison.py sample_resume.txt --num-jobs <some_number>
 ```
@@ -54,7 +54,7 @@ Using your own resume is substantially more useful, but also a bit more work. To
 
 1. Navigate to your [API keys page](https://platform.openai.com/settings/organization/api-keys) on OpenAI's API platform and click `Create a new secret key` to get a new API key. Name this key whatever you like, select `Default project` in the `Project` dropdown menu, and give the key all permissions. Finally, click `Create secret key`
 2. Now that you have created the key, make sure to copy it (the text provided) to a secure location and do not share it.
-3. Run the following commands in your command-line based on your OS to make a new environment variable to store your key (replace <yourkey> with your key you saved):
+3. Run the following commands in your command-line based on your OS to make a new environment variable to store your key (replace &lt;yourkey&gt; with your key you saved):
 ```
 WINDOWS:
 setx OPENAI_API_KEY "<yourkey>"
@@ -72,12 +72,12 @@ LINUX / MACOS:
 2. python embed_resume.py <resume_name>.txt
 3. cd ..
 ```
-7. These commands have ran embed_resume.py with your resume and now there should be a new file called <resume_name>.embedding.json in the user_resume_embeddings directory.
+7. These commands have ran embed_resume.py with your resume and now there should be a new file called &lt;resume_name&gt;_embedding_json in the user_resume_embeddings directory.
 8. To get your job rankings, your resume's embedding will be compared with the 600+ computer science job listing embeddings from Indeed.com in the St. Louis, MO area via cosine similarity--a way of numerically comparing vectors of numbers. All you have to do to see this is run the following command in your terminal:
 ```
 python resume_comparison.py <resume_name>.txt
 ```
-9. Now, Top_N_Jobs.html will be rewritten to show the top 10 best matching jobs with your resume. Simply refresh your browser (or open Top_N_Jobs.html if you have not already) to see the results. Additionally, a file called <resume_name>_ranked_jobs.jsonl has been added to the user_ranked_jobs directory containing all jobs in order of most to least similar to your resume.
+9. Now, Top_N_Jobs.html will be rewritten to show the top 10 best matching jobs for your resume. Simply refresh your browser (or open Top_N_Jobs.html if you have not already) to see the results. Additionally, a file called <resume_name>_ranked_jobs.jsonl has been added to the user_ranked_jobs directory containing all jobs in order of most to least similar to your resume.
 10. If you want to see more than 10 jobs, you can use the optional command-line argument `--num-jobs` to specify any number you like:
 ```
 python resume_comparison.py <resume_name>.txt --num-jobs <num_jobs>
@@ -90,19 +90,20 @@ If you would like, feel free to use the embed_data.py program within the embeddi
 ### Scraping Plan
 
 1. Go to indeed.com and scrape job data for all computer science jobs within 25 miles of St. Louis.
-2. This will be done using Python 3.11.13, Selenium 4.33.0, and [undetected-chromedriver] 3.5.5.
+2. This will be done using Python 3.11.13, Selenium 4.33.0, and undetected-chromedriver 3.5.5.
 3. Since Indeed's terms of service (TOS) explicitly prohibits the unauthorized scraping of data for commercial use, it is fair to assume scraping is generally not appreciated. Whether this is to keep their services exclusive or simply to reduce server lag, it is important to take their TOS into account. So, since the project requirements call for data from a high-profile job listings website (all of which prohibit scraping), there are slowdown functions (sleep, small_sleep, and tiny_sleep) implemented in various locations to reduce the load on the server. Additionally, this data will be used strictly for the academic purpose of designing this project, so no commercial gain will EVER be involved.
 4. Each listing is scraped for its job title, company, location, and full job description.
 5. This data is stored in a .jsonl file using the fields title, company, location, and full_description.
 
 ### Embedding Plan
 
-This project uses OpenAI's text-embedding-3-large model to convert job descriptions into vectors of floating point numbers that can be easily compared to one another. text-embedding-3-large was chosen because it is a cheap model to use (the whole project costed less than $0.10) and it is more precise than it's counterpart, text-embedding-3-small. This model is technically slower than text-embedding-3-small, but it only took around 25-30 minutes to get all 600+ embeddings and that was with exceedingly careful rate limit avoidance including minute long delays to avoid the strictest tokens per minute limit as well as sending batches of around 26 descriptions per request to avoid daily request limits. Overall, this model worked very well for the project. The most similar jobs do seem fairly reasonable and I am glad I went with the higher precision model.
+This project uses OpenAI's text-embedding-3-large model to convert job descriptions into vectors of floating point numbers that can be easily compared to one another. text-embedding-3-large was chosen because it is a cheap model to use (the whole project costed less than $0.10) and it is more precise than it's counterpart, text-embedding-3-small. This model is technically slower than text-embedding-3-small, but it only took around 25-30 minutes to get all 600+ embeddings and that was with exceedingly careful rate limit avoidance including minute long delays to avoid the strictest tokens per minute limit as well as sending batches of around 26 descriptions per request to avoid daily request limits. Overall, this model worked very well for the project and the most similar jobs do seem fairly reasonable. I am glad I went with the higher precision model.
 
 ### Creation Tools
 
 - Windows 11
 - Python 3.11.13
+- pip 25.1
 - numpy 2.3.1
 - SciPy 1.16.0
 - Selenium 4.33.0
