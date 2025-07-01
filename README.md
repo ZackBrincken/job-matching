@@ -14,7 +14,6 @@
 0. [About](#about)
 1. [How it works](#how-it-works)
 2. [Installation](#installation)
-    Options:
     1. [Conda](#option-1-conda-virtual-environment-highly-recommended)
     2. [Manual Installation](#option-2-manually-cloning-the-environment)
 3. [Use](#use)
