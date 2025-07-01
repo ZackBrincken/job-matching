@@ -1,6 +1,29 @@
 # AI-Powered 💪 St. Louis Computer Science Job Matching System
 
-This project allows the user to quickly compare their resume to hundreds of computer science job postings in the St. Louis, MO area and determine which ones are best for them.
+### About
+
+- This project allows the user to quickly compare their resume to hundreds of computer science job postings in the St. Louis, MO area and determine which ones are best for them. 
+- This is done by first scraping job posting data from Indeed.com using Python, Selenium, and Undetected-ChromeDriver to navigate the web and pull HTML elements. 
+- Specifically, job descriptions are pulled from Indeed.com and given embeddings via OpenAI's text-embedding-3-large embedding model. Next, the user must upload their resume which is also given an embeddding via the same model.
+- Finally, the cosine similarities between the uploaded resume's embedding and the embeddings of each job are computed using SciPy's spatial.distance module.
+- The top N (N = 10 by default) most similar jobs are then displayed in Top_N_Jobs.html.
+- To learn more about the project, read the README file and check out job_matching_sequence_diagram.drawio.html to see an outline of the system's functionality.
+
+### Table of Contents
+
+0. [About](#about)
+1. [How it works](#how-it-works)
+2. [Installation](#installation)
+    Options:
+    1. [Conda](#option-1-conda-virtual-environment-highly-recommended)
+    2. [Manual Installation](#option-2-manually-cloning-the-environment)
+3. [Use](#use)
+    - [Use the sample resume](#use-the-sample-resume)
+    - [Use your own resume](#use-your-own-resume)
+    - [Embedding your own data](#embedding-your-own-job-listing-data)
+4. [Scraping Plan](#scraping-plan)
+5. [Embedding Plan](#embedding-plan)
+6. [Tools used in creation](#creation-tools)
 
 ### How it works
 
