@@ -135,4 +135,6 @@ if __name__ == "__main__":
             
     embed_all(jobs)     # create and store embeddings for each job
 
+    print("Finished embedding job data.")
+
 # END MAIN =====================================================================================================================================================================

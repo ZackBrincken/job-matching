@@ -176,4 +176,6 @@ if __name__ == "__main__":
         print(f"Error writing to Top_N_Jobs.html: {e}")
         exit(-1)
 
+    print("Finished comparing resume to job data. View the results in Top_N_Jobs.html.")
+
 # END MAIN ====================================================================================================================================================================

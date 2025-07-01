@@ -4,11 +4,11 @@ scraper.py scrapes computer science job listings in the St. Louis, MO area from 
 a Windows machine.
 
 Disclaimer:
-This scraper may not be used for any purposes other than the one described in this overview and no user-favoring modifications shall be made to the delays in place.
-Since Indeed's terms of service (TOS) explicitly prohibits the unauthorized scraping of data for commercial use, it is fair to assume scraping is generally not appreciated. 
-Whether this is to keep their services exclusive or simply to reduce server lag, it is important to take their TOS into account. So, since the project requirements call for data 
-from a high-profile job listings website (all of which prohibit scraping), there are slowdown functions (sleep, small_sleep, and tiny_sleep) implemented in various locations to 
-reduce the load on the server. Additionally, this data will be used strictly for the academic purpose of designing this project, so no commercial gain will EVER be involved.
+Since Indeed's terms of service (TOS) explicitly prohibits the unauthorized automated scraping of data, the scraping portion of this project must not be replicated for ANY purpose.
+During the scraping process, I was under the false impression that Indeed.com allowed scraping for non-commercial purposes, but it has come to my attention that this is untrue and 
+that the automated scraping of Indeed.com is strictly forbidden. However, even while under the impression that scraping was not forbiddeen, I still tried to be courteous and not spam 
+their site. So, there are slowdown functions (sleep, small_sleep, and tiny_sleep) implemented in various locations to reduce the load on the server. Additionally, this data will be 
+used strictly for the academic purpose of designing this project, so no commercial gain will EVER be involved.
 '''
 # =============================================================================================================================================================================
 
@@ -184,6 +184,8 @@ if __name__ == "__main__":
                 print(f"Error: {e}")
 
     driver.quit()
+
+    print("Finished scraping.")
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
